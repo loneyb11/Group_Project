@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>autosuggestuiHTML</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <style type='text/css'>body{margin:0;padding:0;overflow:hidden;font-family:'Segoe UI',Helvetica,Arial,Sans-Serif}</style>
+        <link href = "https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" rel = "stylesheet">
+        <link rel="stylesheet" href= "assets/styles2.css">
+    </head>
+    <body>
+        <div id='printoutPanel'></div>
+        
+        <div id='searchBoxContainer'><input type= 'text' id= 'searchBox'/></div>
+
+        <div class = "columns">
+            <div class = "column is-one-third" id='printoutPanel2' style='width: 25vw; height: 150vh;'></div>
+            <div class = "column is-two-thirds" id='myMap' style='width: 75vw; height: 100vh;'></div>
+        </div>
+
+        
+        <script type='text/javascript'>
+
+            var map;
+
+            function loadMapScenario() {
+                map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+
+
+                    /* No need to set credentials if already passed in URL */
+                    center: new Microsoft.Maps.Location(29.4241, -98.4936),
+                    //29.4241, -98.4936
+                    zoom: 12
+                });
+                
+                Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', function () {
+                    var options = {
+                        maxResults: 4,
+                        businessSuggestions: true,
+                        map: map
+                    };
+                    var manager = new Microsoft.Maps.AutosuggestManager(options);
+                    manager.attachAutosuggest('#searchBox', '#searchBoxContainer', selectedSuggestion);
+                    
+                    
+                });
+                
+                function selectedSuggestion(suggestionResult) {
+                    map.entities.clear();
+                    map.setView({ bounds: suggestionResult.bestView });
+                    var pushpin = new Microsoft.Maps.Pushpin(suggestionResult.location);
+                    map.entities.push(pushpin);
+                    document.getElementById('printoutPanel').innerHTML =suggestionResult.formattedSuggestion;// + '<br> Lat: ' + suggestionResult.location.latitude + '<br> Lon: ' + suggestionResult.location.longitude; 
+                    
+                    Microsoft.Maps.Events.addHandler(pushpin, 'click', function(){
+                        Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+                            var loc;
+                            var latcoords;
+                            var longcoords;
+                            navigator.geolocation.getCurrentPosition(function(position){
+                                latcoords = position.coords.latitude;
+                                longcoords = position.coords.longitude;
+                                loc = new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude);
+
+                                var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+                                // Set Route Mode to walking
+                                directionsManager.setRequestOptions({ routeMode: Microsoft.Maps.Directions.RouteMode.walking });
+                                var waypoint1 = new Microsoft.Maps.Directions.Waypoint({ location: new Microsoft.Maps.Location(latcoords,longcoords) });
+                                var waypoint2 = new Microsoft.Maps.Directions.Waypoint({ location: new Microsoft.Maps.Location(suggestionResult.location.latitude,suggestionResult.location.longitude) });
+                                directionsManager.addWaypoint(waypoint1);
+                                directionsManager.addWaypoint(waypoint2);
+                                // Set the element in which the itinerary will be rendered
+                                directionsManager.setRenderOptions({ itineraryContainer: document.getElementById('printoutPanel2') });
+                                directionsManager.calculateDirections();
+                            });
+                            
+                            
+                        });
+                    });
+                }
+                
+                
+                
+
+                
+            }
+        </script>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?branch=experimental&key=AvDZqS0UVZMp3dGWBuKqrIhtZJ7ObTZBHKPN4Rx9hxjV5AxgAztKmqXoKEFwZ9Cx&callback=loadMapScenario' async defer></script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Downtown San Antonio Map</title>
+	<!-- Bulma Version 0.8.x-->
+	<link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+	<style>
+		body {
+			background-image: url('assets/images/satx_blur.jpg');
+		}
+	</style>
+	<!-- START NAV -->
+	<nav class="navbar">
+		<div class="container">
+			<div class="navbar-brand">
+				<h1>Welcome to UTSA Downtown Campus <span style="color: #ffffff;">Maps</span></h1>
+				</a>
+				<span class="navbar-burger burger" data-target="navbarMenu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</div>
+			<div id="navbarMenu" class="navbar-menu">
+				<div class="navbar-end">
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link"><span style="color: #ffffff">Account</span></a>
+						<div class="navbar-dropdown">
+							<a class="navbar-item">Dashboard</a>
+							<a class="navbar-item">Profile</a>
+							<a class="navbar-item">Settings</a>
+							<hr class="navbar-divider">
+							<div class="navbar-item">Return to home</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- END NAV -->
+	<section id="main" class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered" style="margin-top:75px;">
+				<div class="columns is-6 is-vcentered">
+					<div class="column is-two-thirds has-text-left" id="myMap" style="width: is-6; height: 100vh;"">
+						
+					</div>
+					<div style=" border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:100vh; overflow-x: scroll; width:
+						is-6; background-color: bisque; ">
+					<div class=" column is-6 is-vcentered" style="width: auto;"">
+						<div class=" box" id="printoutPanel" style="width: 300px;" id="searchBoxContainer">
+							<placeholder>" Search establisment, street or attraction</placeholder>" </div> <div class="control">
+						
+						<input class="input" id="searchBox" style="width: 250px;" type="text" placeholder="Search...">
+						<div class="field" id="printoutPanel2" style="overflow-y: scroll; height:700px;
+								 overflow-x: scroll;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		<div class="column">
+			<div class="box">
+				<p class="has-text-centered">Presented to you by Kristian, Hector & Ben.
+				</p>
+			</div>
+
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container">
+			<div class="content has-text-centered">
+				<p>
+					<strong>Class Project 01 | UTSA Coding Bootcamp 2020</strong> by Kristian | Hector | Ben
+					<br />
+					<a href="https://github.com/loneyb11/Class_Project_01">
+						<img src="assets/images/github.svg" style="width: 25px; height: 25px;"></a>
+
+			</div>
+		</div>
+	</footer>
+
+	<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?branch=experimental&key=AvDZqS0UVZMp3dGWBuKqrIhtZJ7ObTZBHKPN4Rx9hxjV5AxgAztKmqXoKEFwZ9Cx&callback=loadMapScenario' async defer></script>
+	<script type="text/javascript" src="map.js"></script>
+</body>
+
+</html>

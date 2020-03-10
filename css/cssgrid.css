@@ -1,0 +1,47 @@
+
+.clearfix:after { /* adding clearfix to the columns ensures the next set of columns clears the ones above */
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix {
+	display:inline-block;
+}
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+/* styled is added to display the columns, delete this to reset */
+.styled .f1 div, .styled .p1 div, .styled .f2 div, .styled .p2 div, .styled .f3 div, .styled .p3 div, .styled .f4 div, .styled .p4 div, .styled .f5 div, .styled .p5 div, .styled .f6 div, .styled .p6 div, .styled .f7 div, .styled .p7 div, .styled .f8 div, .styled .p8 div {
+	border-right-width:1px;
+	border-right-style:solid;
+	border-right-color:#fff;
+	margin-bottom:12px;
+	line-height:60px;
+	text-align:center;
+	
+}
+.styled .f1.margins div, .styled .p1.margins div, .styled .f2.margins div, .styled .p2.margins div, .styled .f3.margins div, .styled .p3.margins div, .styled .f4.margins div, .styled .p4.margins div, .styled .f5.margins div, .styled .p5.margins div, .styled .f6.margins div, .styled .p6.margins div, .styled .f7.margins div, .styled .p7.margins div, .styled .f8.margins div, .styled .p8.margins div {
+	border-right-width:0;
+}
+/* Setup Fixed + Percentage width and center */
+.f1, .f2, .f3, .f4, .f5, .f6, .f7, .f8 {
+	margin:0 auto;
+	/* The width for fixed is controlled on media queries below */
+}
+.p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8 {
+	width:99%;
+	margin:0 auto;
+}
+
+/* 1 Column */
+.f1 .one,
+.p1 .one {
+	width:100%;
+}
+

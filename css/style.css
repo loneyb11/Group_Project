@@ -1,0 +1,88 @@
+.btn {
+	border: 1px solid transparent;
+	padding: 0.4375rem 1.375rem;
+	font-size: 0.875rem;
+	line-height: 1.75rem;
+    border-radius: 0.25rem;
+    color: #FFFFFF;
+	background: #037DE8;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: rgb(2, 60, 110);
+}
+.btn:active {
+background-color: rgb(2, 60, 110);
+transform: translateY(4px);
+
+}
+
+.searchBox {
+	border-bottom: 5px;
+	
+}
+
+.searchBoxContainer {
+	padding-right: 5px;
+	font-family: 'Saira Semi Condensed', sans-serif;
+	overflow: hidden;
+	overflow: scroll;
+	background-color: aliceblue;
+	width: auto;
+	  }
+
+.myMap {
+	align-content: flex-end;
+
+}
+.body {
+	font-family: 'Saira Semi Condensed', sans-serif;
+  }
+
+  .printoutPanel2 { 
+	font-family: 'Saira Semi Condensed', sans-serif;
+	overflow: auto;
+	overflow: scroll;
+	width: auto;
+  }
+  .label { 
+	font-family: 'Saira Semi Condensed', sans-serif;
+	overflow: auto;
+	overflow: scroll;
+	width: auto
+  }
+  .printoutPanel { 
+	font-family: 'Saira Semi Condensed', sans-serif;
+	overflow: auto;
+	overflow: scroll;
+	width: auto;
+  }
+  
+  @media screen and (min-width: 768px) {
+	.navbar {
+	  font-family: 'Saira Semi Condensed', sans-serif;
+	  padding: 10px 0;
+	  color: #ffffff;
+	  background-color: #273c75;
+	  position: fixed;
+	  width: 100%;
+	  margin-bottom: 50px;
+	}
+  }
+ 
+  
+  .navbarMenu {
+	font-family: 'Saira Semi Condensed', sans-serif;
+	color: #ffffff;
+  }
+  
+  .navbar-link {
+	text-decoration: #ffffff;
+  }
+  
+  .footer {
+	font-family: 'Saira Semi Condensed', sans-serif;
+  }
+  .main {
+	font-family: 'Saira Semi Condensed', sans-serif;
+  }
